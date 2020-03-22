@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+    "pattern": [
+		"  I",
+		" S ",
+		"F  "
+	],
+	"key": {
+		"I":{
+			"item": "minecraft:iron_nugget"
+		},
+		"S": {
+			"item": "minecraft:fermented_spider_eye"
+		},
+		"F": {
+			"item": "minecraft:feather"
+		}
+	},
+	"result": {
+		"item": "wodinos:Tranq_Dart",
+		"count": 8
+	}
+}
