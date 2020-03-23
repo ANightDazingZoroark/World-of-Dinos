@@ -9,5 +9,5 @@ import net.minecraft.entity.Entity;
 public class ModEntities {
 	public static final List<Entity> ENTITIES = new ArrayList<Entity>();
 	
-	public static final Entity Tranq_Dart = new EntityDart("Tranq_Dart");
+	public static final EntityDart Tranq_Dart = new EntityDart("Tranq_Dart");
 }

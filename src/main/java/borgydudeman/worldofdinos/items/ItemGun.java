@@ -2,6 +2,7 @@ package borgydudeman.worldofdinos.items;
 
 import javax.annotation.Nullable;
 
+import borgydudeman.worldofdinos.Main;
 import borgydudeman.worldofdinos.init.ModItems;
 import borgydudeman.worldofdinos.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,8 +20,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemGun extends ItemBow implements IHasModel{	
 	public ItemGun(String name){
-		this.maxStackSize = 1;
-		this.setCreativeTab(CreativeTabs.COMBAT);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		maxStackSize = 1;
+		setCreativeTab(CreativeTabs.COMBAT);
+		ModItems.ITEMS.add(this);
+		
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter(){
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn){
@@ -62,12 +67,11 @@ public class ItemGun extends ItemBow implements IHasModel{
 	
 	public float getZoom(EntityLivingBase entity) {
 		return 1-MathHelper.clamp(this.getMaxItemUseDuration(null) - entity.getItemInUseCount(), 0, 20)/60;//zooms from normal fov to 2/3 normal fov in one second
-	}//this is just an example zoom function
+	}
 	
 	@Override
 	public void registerModels() {
-		// TODO Auto-generated method stub
-		
+		Main.proxy.registerItemRenderer(this, 0, "inventory");		
 	}
 
 }
